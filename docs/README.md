@@ -25,6 +25,22 @@ Every code change that affects user-facing behaviour or the public API
 
 ---
 
+## Features
+
+### Home Page (`MYAPP-1`)
+
+The home page is served at `/` by the Node.js HTTP server in `src/index.js`.
+
+| Element   | Content                                        |
+|-----------|------------------------------------------------|
+| `<title>` | `my-app`                                       |
+| `<h1>`    | `Welcome to my-app`                            |
+| `<p>`     | `Build something great, one feature at a time.` |
+
+**Tests:** `tests/home.spec.js` — 4 Playwright tests covering title, heading, tagline, and non-empty body.
+
+---
+
 ## Style Guide
 
 - Write in clear, plain English.

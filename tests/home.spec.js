@@ -1,22 +1,31 @@
 import { test, expect } from '@playwright/test';
+import { HomePage } from './pages/HomePage.js';
 
-/**
- * Example E2E test — replace with real user flows.
- *
- * Convention:
- *   - One `test.describe` block per feature.
- *   - Cover the happy path + at least one error/edge case.
- *   - Use page-object classes (see tests/pages/) for reusable selectors.
- */
 test.describe('Home page', () => {
-  test('loads successfully', async ({ page }) => {
-    await page.goto('/');
+  test('loads successfully with correct title', async ({ page }) => {
+    const homePage = new HomePage(page);
+    await homePage.goto('/');
     await expect(page).toHaveTitle(/my-app/i);
   });
 
   test('displays the main heading', async ({ page }) => {
-    await page.goto('/');
-    const heading = page.getByRole('heading', { level: 1 });
-    await expect(heading).toBeVisible();
+    const homePage = new HomePage(page);
+    await homePage.goto('/');
+    await expect(homePage.heading).toBeVisible();
+    await expect(homePage.heading).toHaveText('Welcome to my-app');
+  });
+
+  test('displays the tagline', async ({ page }) => {
+    const homePage = new HomePage(page);
+    await homePage.goto('/');
+    await expect(homePage.tagline).toBeVisible();
+    await expect(homePage.tagline).toHaveText('Build something great, one feature at a time.');
+  });
+
+  test('shows a non-empty page body', async ({ page }) => {
+    const homePage = new HomePage(page);
+    await homePage.goto('/');
+    const body = page.locator('body');
+    await expect(body).not.toBeEmpty();
   });
 });
