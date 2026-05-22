@@ -39,6 +39,10 @@ The home page is served at `/` by the Node.js HTTP server in `src/index.js`.
 
 **Tests:** `tests/home.spec.js` — 4 Playwright tests covering title, heading, tagline, and non-empty body.
 
+**Screenshot:**
+
+![Home Page](screenshots/home-page.png)
+
 ---
 
 ## Style Guide
