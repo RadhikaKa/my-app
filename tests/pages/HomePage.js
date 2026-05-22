@@ -9,5 +9,6 @@ export class HomePage extends BasePage {
     this.nav = page.getByRole('navigation', { name: 'Main navigation' });
     this.navHomeLink = page.getByRole('link', { name: 'Home' });
     this.navAboutLink = page.getByRole('link', { name: 'About' });
+    this.settingsLink = page.getByRole('link', { name: /settings/i });
   }
 }

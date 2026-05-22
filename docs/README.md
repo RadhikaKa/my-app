@@ -43,6 +43,21 @@ The home page is served at `/` by the Node.js HTTP server in `src/index.js`.
 
 ![Home Page](screenshots/home-page.png)
 
+### Settings Page (`MYAPP-4`)
+
+The Settings page is served at `/settings` by the Node.js HTTP server in `src/index.js`.
+
+| Element         | Content                                              |
+|-----------------|------------------------------------------------------|
+| `<title>`       | `Settings — my-app`                                  |
+| `<h1>`          | `Settings`                                           |
+| `<p>`           | `Manage your application preferences below.`         |
+| Theme selector  | `<select id="theme">` — Light / Dark / System        |
+| Notifications   | `<input type="checkbox" id="notifications">` checked |
+| Back link       | `← Back to Home` → navigates to `/`                 |
+
+**Tests:** `tests/home.spec.js` — 5 Playwright tests covering title, heading, theme selector, notifications toggle, and back-link navigation.
+
 ---
 
 ### Left Navigation Bar (`MYAPP-3`)

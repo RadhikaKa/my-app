@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from './pages/HomePage.js';
+import { SettingsPage } from './pages/SettingsPage.js';
 
 test.describe('Home page', () => {
   test('loads successfully with correct title', async ({ page }) => {
@@ -27,6 +28,49 @@ test.describe('Home page', () => {
     await homePage.goto('/');
     const body = page.locator('body');
     await expect(body).not.toBeEmpty();
+  });
+
+  test('has a link to the Settings page', async ({ page }) => {
+    const homePage = new HomePage(page);
+    await homePage.goto('/');
+    await expect(homePage.settingsLink).toBeVisible();
+    await expect(homePage.settingsLink).toHaveAttribute('href', '/settings');
+  });
+});
+
+test.describe('Settings page', () => {
+  test('loads with correct title', async ({ page }) => {
+    const settingsPage = new SettingsPage(page);
+    await settingsPage.goto();
+    await expect(page).toHaveTitle(/settings/i);
+  });
+
+  test('displays the Settings heading', async ({ page }) => {
+    const settingsPage = new SettingsPage(page);
+    await settingsPage.goto();
+    await expect(settingsPage.heading).toBeVisible();
+    await expect(settingsPage.heading).toHaveText('Settings');
+  });
+
+  test('has a Theme preference selector', async ({ page }) => {
+    const settingsPage = new SettingsPage(page);
+    await settingsPage.goto();
+    await expect(settingsPage.themeSelect).toBeVisible();
+  });
+
+  test('has an Email notifications toggle', async ({ page }) => {
+    const settingsPage = new SettingsPage(page);
+    await settingsPage.goto();
+    await expect(settingsPage.notificationsCheckbox).toBeVisible();
+    await expect(settingsPage.notificationsCheckbox).toBeChecked();
+  });
+
+  test('has a Back to Home link', async ({ page }) => {
+    const settingsPage = new SettingsPage(page);
+    await settingsPage.goto();
+    await expect(settingsPage.backLink).toBeVisible();
+    await settingsPage.backLink.click();
+    await expect(page).toHaveURL(/localhost:3000\/?$/);
   });
 });
 
