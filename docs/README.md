@@ -45,6 +45,20 @@ The home page is served at `/` by the Node.js HTTP server in `src/index.js`.
 
 ---
 
+### Left Navigation Bar (`MYAPP-3`)
+
+A persistent left-side navigation panel added to all pages.
+
+| Element        | Content / Behaviour                          |
+|----------------|----------------------------------------------|
+| Brand label    | `my-app` (styled in purple)                  |
+| Home link      | `/` — marked `aria-current="page"` when active |
+| About link     | `/about`                                     |
+
+**Tests:** `tests/home.spec.js` — 3 Playwright tests covering visibility, active Home link, and About link href.
+
+---
+
 ## Style Guide
 
 - Write in clear, plain English.
