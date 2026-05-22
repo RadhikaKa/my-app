@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npx playwright *)",
+      "Bash(npx eslint *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git add *)",
+      "Bash(git commit -m *)",
+      "Bash(git checkout -b *)",
+      "Bash(git branch *)",
+      "Bash(git log *)",
+      "Bash(git push origin *)"
+    ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(rm -rf *)",
+      "Bash(git merge *)",
+      "Bash(gh pr merge *)"
+    ]
+  },
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "claudeFlow": "e2e-dev",
+  "humanGates": {
+    "pullRequestReview": true,
+    "pullRequestMerge": true,
+    "productionDeploy": true
+  }
+}

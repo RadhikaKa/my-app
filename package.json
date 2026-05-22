@@ -1,0 +1,23 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "Web application with Claude Code E2E automated development workflow",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.js",
+    "build": "echo \"Add your build step here (e.g. vite build, tsc, webpack)\"",
+    "lint": "eslint src/ tests/",
+    "lint:fix": "eslint src/ tests/ --fix",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report",
+    "docs": "echo \"Add your doc generation step here (e.g. typedoc, jsdoc)\""
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "eslint": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
