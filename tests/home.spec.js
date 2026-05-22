@@ -29,3 +29,25 @@ test.describe('Home page', () => {
     await expect(body).not.toBeEmpty();
   });
 });
+
+test.describe('Left navigation bar', () => {
+  test('is visible on the page', async ({ page }) => {
+    const homePage = new HomePage(page);
+    await homePage.goto('/');
+    await expect(homePage.nav).toBeVisible();
+  });
+
+  test('contains a Home link marked as active', async ({ page }) => {
+    const homePage = new HomePage(page);
+    await homePage.goto('/');
+    await expect(homePage.navHomeLink).toBeVisible();
+    await expect(homePage.navHomeLink).toHaveAttribute('aria-current', 'page');
+  });
+
+  test('contains an About link', async ({ page }) => {
+    const homePage = new HomePage(page);
+    await homePage.goto('/');
+    await expect(homePage.navAboutLink).toBeVisible();
+    await expect(homePage.navAboutLink).toHaveAttribute('href', '/about');
+  });
+});
