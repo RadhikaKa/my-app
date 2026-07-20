@@ -30,4 +30,4 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         with:
-          model: gpt-5.4-mini
+          model: openai/gpt-4o
