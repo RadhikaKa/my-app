@@ -28,6 +28,5 @@ jobs:
       - name: Run opencode
         uses: anomalyco/opencode/github@latest
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        with:
-          model: openai/gpt-4o
+          AIGW_API_KEY: ${{ secrets.AIGW_API_KEY }}
+          AIGW_BASE_URL: ${{ secrets.AIGW_BASE_URL }}

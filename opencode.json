@@ -1,13 +1,19 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "provider": {
-    "openai": {
+    "aigw": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "MajorDomo AI Gateway",
+      "options": {
+        "baseURL": "{env:AIGW_BASE_URL}",
+        "apiKey": "{env:AIGW_API_KEY}"
+      },
       "models": {
-        "gpt-4o": {
-          "name": "GPT-4o"
+        "gpt-5.4-mini": {
+          "name": "GPT-5.4 Mini through AI Gateway"
         }
       }
     }
   },
-  "model": "openai/gpt-4o"
+  "model": "aigw/gpt-5.4-mini"
 }
